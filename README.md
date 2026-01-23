@@ -43,11 +43,11 @@ O tabuleiro consiste em uma matriz de **6 linhas por 7 colunas**.
 
 ## 👥 Equipe de Desenvolvimento
 
-[cite_start]Projeto desenvolvido pelos discentes[cite: 40]:
+Projeto desenvolvido pelos discentes:
 
-* **Arthur Nicolas** - 
-* **Lauane Morais** -
-* **Luiza Accioly** - 
+* **[Arthur Nicolas](https://github.com/nicolassl12)**  
+* **[Lauane Morais](https://github.com/LauaneMorais)** 
+* **[Luiza Accioly](https://github.com/Acciolylu)** 
 
 ---
 *Desenvolvido para a disciplina de Programação Imperativa (COMP0334) - UFS.*
