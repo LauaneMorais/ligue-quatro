@@ -2,14 +2,9 @@
 
 int main(int argc, char const *argv[])
 {
-    
-    int tabuleiro[6][7] = {    // caso teste = colunas disponiveis[1, 2, 4, 5, 7]
-        {0, 0, 1, 0, 0, 1, 0}, // caso teste = colunas indisponiveis[3, 6]
-        {0, 0, 2, 0, 0, 2, 0}, 
-        {0, 0, 2, 0, 0, 2, 0}, 
-        {0, 0, 1, 1, 0, 1, 0}, 
-        {0, 0, 2, 2, 0, 2, 0}, 
-        {1, 0, 1, 1, 2, 1, 2}};
+    // teste = apenas o jogador 1 esta jogando
+
+    int tabuleiro[6][7] = {0};
 
     int jogada;
 
@@ -29,8 +24,14 @@ int main(int argc, char const *argv[])
                 espacos++;
             }
         }
-        if(i== jogada && espacos > 0){
+        if(i == jogada && espacos > 0){
             printf("Essa coluna [%d] esta disponivel para jogada!\n", i+1);
+            for(int k=5; k>=0; k--){
+                if(tabuleiro[k][i] == 0){
+                    tabuleiro[k][i] = 1; // sera colocado 1 pq apenas o jogador 1 esta jogando
+                    break;
+                }
+            }
             break;
         }
         else if(i == jogada && espacos == 0){
@@ -38,6 +39,8 @@ int main(int argc, char const *argv[])
             break;
         }
     }
+
+    printf("%d", tabuleiro[5][jogada]); // so pra testar se a gravidade funcionou
 
     return 0;
 }
