@@ -3,7 +3,7 @@
 
 void verificarcolunas(int tabuleiro[6][7], int jogada, int jogador)
 {
-    // em matrizes e vet, a contagem comeca do 0, mas para ficar melhor pro usuario, ele vai selecionar de 1 a 7
+    // Em matrizes e vet, a contagem comeca do 0, mas para ficar melhor pro usuario, ele vai selecionar de 1 a 7
 
     jogada -= 1; // vai fazer com que seja melhor para o usuario visualizar as colunas de 1 a 7 e nao de 0 a 6
 

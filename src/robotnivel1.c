@@ -4,7 +4,7 @@
 
 int robotnivel1(){
     
-    int jogada = (rand() % 7) + 1;
+    int jogada = (rand() % 7) + 1; // randomizador
 
     return jogada;
 

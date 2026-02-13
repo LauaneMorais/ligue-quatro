@@ -5,7 +5,7 @@ int vitoria(int tabuleiro[6][7], int jogador){
     
     int cont;
 
-    // for para contar repetição nas linhas(horizontal)!!!
+    // for para contar repetição nas linhas(horizontal)!
     for(int i=0; i<6; i++){
         cont= 0; // essas inicializações sao necessarias para que o contador nao fique com valores apos o fim do laço j
         for(int j=0; j<6; j++){

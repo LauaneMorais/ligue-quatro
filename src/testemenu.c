@@ -54,11 +54,11 @@ int main(int argc, char const *argv[])
         }
         
         if(vitoria(tabuleiro, jogador) == 1){
-            // o print da funcao vitoria acontece aqui e acaba o while por conta da vitoria
+            // o print da funcao vitoria acontece aqui e acaba o while por conta da vitoria!
             break;
         }
         else if(vitoria(tabuleiro, jogador) == 2){
-            // print informando empate
+            // print informando empate!
             break;
         }
 
