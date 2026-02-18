@@ -41,6 +41,29 @@ O tabuleiro consiste em uma matriz de **6 linhas por 7 colunas**.
 * **Linguagem C** (Padrão ANSI/ISO).
 * **Bibliotecas:** Apenas bibliotecas nativas (`stdio.h`, `stdlib.h`, `time.h`, etc.), conforme requisito da disciplina.
 
+## Compilação e execução:
+
+Este projeto possui um `Makefile` para automatizar a compilação. Certifique-se de ter o `gcc` e o `make` instalados.
+
+### Passo a passo:
+
+1.  **Abra o terminal** na pasta raiz do projeto (ligue-quatro).
+2.  **Compile o jogo** executando o comando:
+    ```bash
+    make
+    ```
+3.  **Execute o jogo** com o comando:
+    ```bash
+    ./jogo
+    ```
+    *(Ou utilize `make run` para compilar e rodar automaticamente)*.
+
+4.  **Limpar arquivos temporários:**
+    Para apagar o executável gerado, use:
+    ```bash
+    make clean
+    ```
+
 ## 👥 Equipe de Desenvolvimento
 
 Projeto desenvolvido pelos discentes:
