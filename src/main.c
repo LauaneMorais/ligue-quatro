@@ -7,7 +7,7 @@
 #include "vitoria.h"
 #include "display.h" 
 
-int main(int argc, char const *argv[])
+int main()
 {
     
     srand(time(NULL));
@@ -60,20 +60,25 @@ int main(int argc, char const *argv[])
         else{
             printf("Modo de jogo nao reconhecido, digite novamente: ");
         }
-        
+
         // verifica vitoria APOS jogar
         int resultado = vitoria(tabuleiro, jogador);
 
         if(resultado == 1){
             limparTela();              
             imprimirTabuleiro(tabuleiro); 
-            // o print da funcao vitoria acontece aqui e acaba o while por conta da vitoria!
+
+            printf("PARABÉNS! JOGADOR %d VENCEU!\n", jogador);
+            printf("\nPressione ENTER para sair...");
+            getchar(); getchar(); // primeiro enter limpa, o segundo sai do jogo
             break;
         }
         else if(resultado == 2){
             limparTela();              
             imprimirTabuleiro(tabuleiro); 
-            // print informando empate!
+            
+            printf("EMPATE! O TABULEIRO ENCHEU.\n");
+            getchar(); getchar();
             break;
         }
 
