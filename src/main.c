@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #include "robotnivel1.h"
 #include "verificarcolunas.h"
 #include "vitoria.h"
+#include "display.h" 
 
 int main(int argc, char const *argv[])
 {
@@ -14,6 +16,8 @@ int main(int argc, char const *argv[])
     int modo_de_jogo;
     int jogada;
 
+    // limpa o que estiver na tela nates de começar uma rodada
+    limparTela(); 
     printf("1 -> PLAYER VS. PLAYER\n");
     printf("2 -> PLAYER VS. ROBO\n");
     printf("3 -> ROBO VS. ROBO\n");
@@ -25,6 +29,10 @@ int main(int argc, char const *argv[])
 
     while(1){
         
+        limparTela();
+        imprimirTabuleiro(tabuleiro); 
+        // ------------------------------------
+
         if(modo_de_jogo == 1){
             printf("Jogada do Player[%d]: ", jogador);
             scanf("%d", &jogada);
@@ -46,18 +54,25 @@ int main(int argc, char const *argv[])
         else if(modo_de_jogo == 3){
             printf("Jogada do Robo[%d]!\n", jogador);
             jogada = robotnivel1();
-            printf("Robo[%d] escolheu a coluna -> [%d]\n", jogada);
+            printf("Robo escolheu a coluna -> [%d]\n", jogada);
             verificarcolunas(tabuleiro, jogada, jogador);
         }
         else{
             printf("Modo de jogo nao reconhecido, digite novamente: ");
         }
         
-        if(vitoria(tabuleiro, jogador) == 1){
+        // verifica vitoria APOS jogar
+        int resultado = vitoria(tabuleiro, jogador);
+
+        if(resultado == 1){
+            limparTela();              
+            imprimirTabuleiro(tabuleiro); 
             // o print da funcao vitoria acontece aqui e acaba o while por conta da vitoria!
             break;
         }
-        else if(vitoria(tabuleiro, jogador) == 2){
+        else if(resultado == 2){
+            limparTela();              
+            imprimirTabuleiro(tabuleiro); 
             // print informando empate!
             break;
         }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "verificarcolunas.h"
+#include "verificarcolunas.h" 
 
 void verificarcolunas(int tabuleiro[6][7], int jogada, int jogador)
 {
