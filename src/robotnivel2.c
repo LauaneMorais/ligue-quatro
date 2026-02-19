@@ -54,6 +54,51 @@ int robotnivel2(int tabuleiro[6][7], int jogadorIA) {
         }
     }
 
+    // defesa na diagonal DESCENDO
+    for (int i = 0; i < 3; i++) {   //so pode começar ate a linha 2 e coluna 3 pra caber a diagonal 
+        for (int j = 0; j < 4; j++) { 
+
+            int soma = 0, vazio_i = -1, vazio_j = -1;
+            
+            for (int k = 0; k < 4; k++) {
+                if (tabuleiro[i+k][j+k] == oponente) {
+                    soma++;
+                } else if (tabuleiro[i+k][j+k] == 0) {
+                    vazio_i = i+k; 
+                    vazio_j = j+k;
+                }
+            }
+            
+            // se achou 3 e 1 espaço vazio, ve se da pra enxaiar uma peça
+            if (soma == 3 && vazio_i != -1) {
+                if (validarGravidade(tabuleiro, vazio_i, vazio_j)) {
+                    return vazio_j + 1;
+                }
+            }
+        }
+    }
+
+    // defesa na diagonal subindo
+    for (int i = 3; i < 6; i++) { // começa das linhas de baixo 
+        for (int j = 0; j < 4; j++) { // começa das colunas da esquerda 
+            int soma = 0, vazio_i = -1, vazio_j = -1;
+            
+            for (int k = 0; k < 4; k++) {
+                if (tabuleiro[i-k][j+k] == oponente) {
+                    soma++;
+                } else if (tabuleiro[i-k][j+k] == 0) {
+                    vazio_i = i-k;
+                    vazio_j = j+k;
+                }
+            }
+            
+            if (soma == 3 && vazio_i != -1) {
+                if (validarGravidade(tabuleiro, vazio_i, vazio_j)) {
+                    return vazio_j + 1;
+                }
+            }
+        }
+    }
     // se nenhum condicional for executado, realiza uma jogada aleatoria tal qual a IA I
     return robotnivel1(); 
 }
