@@ -38,6 +38,22 @@ int robotnivel2(int tabuleiro[6][7], int jogadorIA) {
         }
     }
 
+    //defesa na horzontal
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            int soma = 0, vazio_j = -1; //procura algum espaço vazio que possa completar os 4 espaços e encaixa a peça nesse espaço
+            for (int k = 0; k < 4; k++) {
+                if (tabuleiro[i][j + k] == oponente) soma++;
+                else if (tabuleiro[i][j + k] == 0) vazio_j = j + k;
+            }
+            if (soma == 3 && vazio_j != -1) {
+                if (validarGravidade(tabuleiro, i, vazio_j)) {
+                    return vazio_j + 1;
+                }
+            }
+        }
+    }
+
     // se nenhum condicional for executado, realiza uma jogada aleatoria tal qual a IA I
     return robotnivel1(); 
 }
