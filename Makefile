@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -I include -Wall -Wextra
 
 # lista de arquivos fonte e o nome do executável
-SRC = src/main.c src/display.c src/robotnivel1.c src/verificarcolunas.c src/vitoria.c
+SRC = src/main.c src/display.c src/robotnivel1.c serc/robotnivel2.c src/verificarcolunas.c src/vitoria.c
 OBJ = jogo
 
 all: $(OBJ)
