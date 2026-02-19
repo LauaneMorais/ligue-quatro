@@ -6,6 +6,7 @@
 #include "verificarcolunas.h"
 #include "vitoria.h"
 #include "display.h" 
+#include "robotnivel2.h"
 
 int main(int argc, char const *argv[])
 {
