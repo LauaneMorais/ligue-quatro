@@ -7,6 +7,7 @@
 #include "vitoria.h"
 #include "display.h" 
 #include "robotnivel2.h"
+#include "robotnivel3.h"
 
 int main()
 {
@@ -53,25 +54,39 @@ int main()
             scanf("%d", &jogada);
             verificarcolunas(tabuleiro, jogada, jogador);
         }
+        
         else if(modo_de_jogo == 2){
+
             if(jogador == 1){
                 printf("Jogada do Player[%d]: ", jogador);
                 scanf("%d", &jogada);
                 verificarcolunas(tabuleiro, jogada, jogador);
             }
-            else{
-                printf("Jogada do Robo!\n");
-                jogada = robotnivel1();
+            else {
+                printf("Jogada do Robo (Nivel %d)!\n", nivelRobo1);
+                
+                if (nivelRobo1 == 3) jogada = robotnivel3(tabuleiro, jogador);
+                else if (nivelRobo1 == 2) jogada = robotnivel2(tabuleiro, jogador);
+                else jogada = robotnivel1();
+                
                 printf("O Robo escolheu a coluna -> [%d]\n", jogada);
                 verificarcolunas(tabuleiro, jogada, jogador);
             }
         }
+
         else if(modo_de_jogo == 3){
-            printf("Jogada do Robo[%d]!\n", jogador);
-            jogada = robotnivel1();
+            
+            int nivelAtual = (jogador == 1) ? nivelRobo1 : nivelRobo2;
+            printf("Jogada do Robo[%d] (Nivel %d)!\n", jogador, nivelAtual);
+            
+            if (nivelAtual == 3) jogada = robotnivel3(tabuleiro, jogador);
+            else if (nivelAtual == 2) jogada = robotnivel2(tabuleiro, jogador);
+            else jogada = robotnivel1();
+            
             printf("Robo escolheu a coluna -> [%d]\n", jogada);
             verificarcolunas(tabuleiro, jogada, jogador);
         }
+
         else{
             printf("Modo de jogo nao reconhecido, digite novamente: ");
         }
