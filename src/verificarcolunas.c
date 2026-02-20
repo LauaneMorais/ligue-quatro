@@ -1,11 +1,17 @@
 #include <stdio.h>
 #include "verificarcolunas.h" 
 
-void verificarcolunas(int tabuleiro[6][7], int jogada, int jogador)
+int verificarcolunas(int tabuleiro[6][7], int jogada, int jogador)
 {
     // Em matrizes e vet, a contagem comeca do 0, mas para ficar melhor pro usuario, ele vai selecionar de 1 a 7
 
     jogada -= 1; // vai fazer com que seja melhor para o usuario visualizar as colunas de 1 a 7 e nao de 0 a 6
+
+    //validação da coluna
+    if(jogada < 0 || jogada > 6) {
+        printf("Erro: Coluna invalida! Escolha um numero entre 1 e 7.\n");
+        return 0; // 0 para ERROOO
+    }
 
     int espacos;
 
@@ -21,15 +27,16 @@ void verificarcolunas(int tabuleiro[6][7], int jogada, int jogador)
             for(int k=5; k>=0; k--){
                 if(tabuleiro[k][i] == 0){
                     tabuleiro[k][i] = jogador; // sera colocado 1 ou 2 respresentando o numero do jogador
-                    break;
+                    return 1;
                 }
             }
-            break;
+            return 1;
         }
         else if(i == jogada && espacos == 0){
-            printf("Essa coluna [%d] nao esta disponivel para jogada!\n", i+1);
-            break;
+            printf("Essa coluna [%d] não está disponível para jogada!\n", i+1);
+            return 0;
         }
     }
-
+    
+    return 0;
 }
