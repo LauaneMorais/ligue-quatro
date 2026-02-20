@@ -23,7 +23,7 @@ int main()
     limparTela(); 
     printf("1 -> PLAYER VS. PLAYER\n");
     printf("2 -> PLAYER VS. ROBO\n");
-    printf("3 -> ROBO VS. ROBO\n");
+    printf("3 -> ROBÔ VS. ROBÔ\n");
     
     printf("Escolha o modo de jogo: ");
     scanf("%d", &modo_de_jogo);
@@ -31,13 +31,13 @@ int main()
     int nivelRobo1 = 1, nivelRobo2 = 1; 
     
     if (modo_de_jogo == 2) {
-        printf("\nEscolha o nivel do robô (1-Baixa, 2-Media, 3-Alta): ");
+        printf("\nEscolha o nível do robô (1-Baixa, 2-Média, 3-Alta): ");
         scanf("%d", &nivelRobo1);
     } 
     else if (modo_de_jogo == 3) {
-        printf("\nEscolha o nivel do robô I (1-Baixa, 2-Media, 3-Alta): ");
+        printf("\nEscolha o nível do robô 1 (1-Baixa, 2-Média, 3-Alta): ");
         scanf("%d", &nivelRobo1);
-        printf("Escolha o nivel do robô II (1-Baixa, 2-Media, 3-Alta): ");
+        printf("Escolha o nível do robô 2 (1-Baixa, 2-Média, 3-Alta): ");
         scanf("%d", &nivelRobo2);
     }
 
@@ -62,14 +62,14 @@ int main()
                 verificarcolunas(tabuleiro, jogada, jogador);
             }
             else{
-                printf("Jogada do Robo (Nivel %d)!\n", nivelRobo1);
+                printf("Jogada do Robô (nível %d)!\n", nivelRobo1);
                 
                 // escolhendo a ia
                 if (nivelRobo1 == 3) jogada = robotnivel3(tabuleiro, jogador);
                 else if (nivelRobo1 == 2) jogada = robotnivel2(tabuleiro, jogador);
                 else jogada = robotnivel1();
                 
-                printf("O Robo escolheu a coluna -> [%d]\n", jogada);
+                printf("O Robô escolheu a coluna -> [%d]\n", jogada);
                 verificarcolunas(tabuleiro, jogada, jogador);
 
 
@@ -77,16 +77,16 @@ int main()
             }
         }
         else if(modo_de_jogo == 3){
-            
+
             int nivelAtual = (jogador == 1) ? nivelRobo1 : nivelRobo2;
-            printf("Jogada do Robo[%d] (Nivel %d)!\n", jogador, nivelAtual);
+            printf("Jogada do Robô[%d] (nível %d)!\n", jogador, nivelAtual);
             
             // escolhendo a ia
             if (nivelAtual == 3) jogada = robotnivel3(tabuleiro, jogador);
             else if (nivelAtual == 2) jogada = robotnivel2(tabuleiro, jogador);
             else jogada = robotnivel1();
             
-            printf("Robo escolheu a coluna -> [%d]\n", jogada);
+            printf("O Robô escolheu a coluna -> [%d]\n", jogada);
             verificarcolunas(tabuleiro, jogada, jogador);
 
 
@@ -94,7 +94,7 @@ int main()
         }
 
         else{
-            printf("Modo de jogo nao reconhecido, digite novamente: ");
+            printf("Modo de jogo não reconhecido, digite novamente: ");
         }
 
         // verifica vitoria APOS jogar
