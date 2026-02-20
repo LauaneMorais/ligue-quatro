@@ -83,7 +83,7 @@ int pontuarPosicao(int v1, int v2, int v3, int v4, int jogadorIA) {
     
     //peças iguais -prioridade maxima
     if (countIA == 4) {
-        pontos += 1000;
+        pontos += 100000;
     } 
     //peças de IA  e 1 espaço vazio -muito bom
     else if (countIA == 3 && countVazio == 1) {
@@ -96,14 +96,14 @@ int pontuarPosicao(int v1, int v2, int v3, int v4, int jogadorIA) {
 
    //se o adversario está prestes a ganhar a IA precisa bloquear, saldo negativo para indicar perigo
     if (countAdv == 3 && countVazio == 1) {
-        pontos -= 500;
+        pontos -= 80000;
     }
 
     return pontos;
 }
 
 int robotnivel3(int matriz[6][7], int jogadorIA) {
-    int melhorPontuacao = -1000; //valor muito baixo para começar e facilitar a comparação
+    int melhorPontuacao = -999999; //valor muito baixo para começar e facilitar a comparação
     int melhorColuna = 3; //começar pela coluna central, pois estrategicamnete esta no meio do tabuleiro
 
     //a logica linhaa/coluna vai ser invertida aqui para ser coluna/linha pois a coluna vai ser "fixa" momentaneamente e só a linha vai ser testada
@@ -132,5 +132,5 @@ int robotnivel3(int matriz[6][7], int jogadorIA) {
             }
         }
     }
-    return melhorColuna;// retorna a coluna vencedora na simulação
+    return melhorColuna + 1;// retorna a coluna vencedora na simulação
 } 
