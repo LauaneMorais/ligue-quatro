@@ -56,30 +56,32 @@ int main()
         }
         
         else if(modo_de_jogo == 2){
-
             if(jogador == 1){
                 printf("Jogada do Player[%d]: ", jogador);
                 scanf("%d", &jogada);
                 verificarcolunas(tabuleiro, jogada, jogador);
             }
-            else {
+            else{
                 printf("Jogada do Robo (Nivel %d)!\n", nivelRobo1);
                 
+                // escolhendo a ia
                 if (nivelRobo1 == 3) jogada = robotnivel3(tabuleiro, jogador);
                 else if (nivelRobo1 == 2) jogada = robotnivel2(tabuleiro, jogador);
                 else jogada = robotnivel1();
                 
+                printf("O Robo escolheu a coluna -> [%d]\n", jogada);
                 verificarcolunas(tabuleiro, jogada, jogador);
+
+
+                sleep(1); // pausa
             }
-
-            sleep(1);
         }
-
         else if(modo_de_jogo == 3){
             
             int nivelAtual = (jogador == 1) ? nivelRobo1 : nivelRobo2;
             printf("Jogada do Robo[%d] (Nivel %d)!\n", jogador, nivelAtual);
             
+            // escolhendo a ia
             if (nivelAtual == 3) jogada = robotnivel3(tabuleiro, jogador);
             else if (nivelAtual == 2) jogada = robotnivel2(tabuleiro, jogador);
             else jogada = robotnivel1();
@@ -87,7 +89,8 @@ int main()
             printf("Robo escolheu a coluna -> [%d]\n", jogada);
             verificarcolunas(tabuleiro, jogada, jogador);
 
-            sleep(1);
+
+            sleep(1); // pausa 
         }
 
         else{
