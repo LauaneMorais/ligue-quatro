@@ -6,6 +6,7 @@
 #include "verificarcolunas.h"
 #include "vitoria.h"
 #include "display.h" 
+#include "robotnivel2.h"
 
 int main()
 {
@@ -16,14 +17,28 @@ int main()
     int modo_de_jogo;
     int jogada;
 
+    
     // limpa o que estiver na tela nates de começar uma rodada
     limparTela(); 
     printf("1 -> PLAYER VS. PLAYER\n");
     printf("2 -> PLAYER VS. ROBO\n");
     printf("3 -> ROBO VS. ROBO\n");
-
+    
     printf("Escolha o modo de jogo: ");
     scanf("%d", &modo_de_jogo);
+    
+    int nivelRobo1 = 1, nivelRobo2 = 1; 
+    
+    if (modo_de_jogo == 2) {
+        printf("\nEscolha o nivel do robô (1-Baixa, 2-Media, 3-Alta): ");
+        scanf("%d", &nivelRobo1);
+    } 
+    else if (modo_de_jogo == 3) {
+        printf("\nEscolha o nivel do robô I (1-Baixa, 2-Media, 3-Alta): ");
+        scanf("%d", &nivelRobo1);
+        printf("Escolha o nivel do robô II (1-Baixa, 2-Media, 3-Alta): ");
+        scanf("%d", &nivelRobo2);
+    }
 
     int jogador = 1;
 
