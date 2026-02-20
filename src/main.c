@@ -69,9 +69,10 @@ int main()
                 else if (nivelRobo1 == 2) jogada = robotnivel2(tabuleiro, jogador);
                 else jogada = robotnivel1();
                 
-                printf("O Robo escolheu a coluna -> [%d]\n", jogada);
                 verificarcolunas(tabuleiro, jogada, jogador);
             }
+
+            sleep(1);
         }
 
         else if(modo_de_jogo == 3){
@@ -85,6 +86,8 @@ int main()
             
             printf("Robo escolheu a coluna -> [%d]\n", jogada);
             verificarcolunas(tabuleiro, jogada, jogador);
+
+            sleep(1);
         }
 
         else{

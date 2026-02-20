@@ -22,8 +22,6 @@ int robotnivel2(int tabuleiro[6][7], int jogadorIA) {
             if (tabuleiro[i][j] == oponente) jogadasOponente++;
         }
     }
-    printf("IA II: Oponente já fez %d jogadas. Analisando...\n", jogadasOponente);
-
 
     //analisa se o jogador vai ganhar na vertical
     for (int j = 0; j < 7; j++) {
